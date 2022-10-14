@@ -9,20 +9,22 @@ function Login() {
     const navigate = useNavigate();
 
     const [passwordType, setPasswordType] = useState("password");
+    const [showpass, setshowpass] = useState("show");
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
     const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated") || false));
 
 
-    const togglePassword =()=>{
-        
-        if(passwordType==="password")
-        {
-         setPasswordType("text")
-         return;
+    const togglePassword = () => {
+
+        if (passwordType === "password") {
+            setPasswordType("text")
+            setshowpass("Hide")
+            return;
         }
         setPasswordType("password")
-      }
+        setshowpass("Show")
+    }
 
 
     const loginApi = () => {
@@ -59,7 +61,7 @@ function Login() {
                     </p>
                     <p>
                         <input value={pass} onChange={(e) => setPass(e.target.value)} type={passwordType} id="password" placeholder="password" required />
-                        <sup className='showpass' onClick={togglePassword}>Show/Hide</sup>
+                        <sup className='showpass' onClick={togglePassword}>{ showpass}</sup>
                     </p>
                     <div className='button-container'>
                         <div className='buttons'>
