@@ -1,0 +1,51 @@
+
+
+body {
+    text-align: left;
+    background-color: rgb(66, 150, 59);
+}
+
+p{
+    text-align: center;
+}
+.update-count{
+    margin-left: 80%;
+    font-weight: bolder;
+}
+
+.container{
+    height: 75vh;
+}
+.wrap{
+    margin-right: 50px;
+    float: right;
+    height: 40px;
+    width: 40px;
+    border-radius: 2em;
+    font-size: medium;
+}
+.content {
+    background-color: aliceblue;
+    height: 100%;
+    width: 30%;
+    float: right;
+    color: black;
+    font-size: medium;
+}
+
+.container :is(h1, h2, h3, h4, h5, h6)
+{
+    text-align: left;
+}
+
+.details{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+
+.logout{
+    color: red;
+}
