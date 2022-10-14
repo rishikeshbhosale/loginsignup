@@ -79,3 +79,10 @@ input {
   color: #fff;
   font-size: large;
 }
+
+.showpass{
+  margin-left: -60px;
+  color: black;
+  font-size: smaller;
+  border: 1px;
+}

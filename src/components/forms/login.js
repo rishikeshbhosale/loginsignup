@@ -8,9 +8,22 @@ import './login.css'
 function Login() {
     const navigate = useNavigate();
 
+    const [passwordType, setPasswordType] = useState("password");
     const [email, setEmail] = useState("")
     const [pass, setPass] = useState("")
     const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated") || false));
+
+
+    const togglePassword =()=>{
+        
+        if(passwordType==="password")
+        {
+         setPasswordType("text")
+         return;
+        }
+        setPasswordType("password")
+      }
+
 
     const loginApi = () => {
 
@@ -31,7 +44,6 @@ function Login() {
             })
             .catch(function (error) {
                 alert("Server Busy!!! Plaease Try Again");
-
             });
 
     }
@@ -46,7 +58,8 @@ function Login() {
                         <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" id="email" placeholder="Email" required />
                     </p>
                     <p>
-                        <input value={pass} onChange={(e) => setPass(e.target.value)} type="password" id="password" placeholder="password" required />
+                        <input value={pass} onChange={(e) => setPass(e.target.value)} type={passwordType} id="password" placeholder="password" required />
+                        <sup className='showpass' onClick={togglePassword}>Show/Hide</sup>
                     </p>
                     <div className='button-container'>
                         <div className='buttons'>

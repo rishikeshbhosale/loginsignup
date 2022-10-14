@@ -1,14 +1,24 @@
 import React from 'react'
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import './user.css'
+import { Link, useNavigate } from 'react-router-dom'
 
-import { Link } from 'react-router-dom';
 
 function User() {
 
+  const navigate = useNavigate();
   const [showinfo, setshowinfo] = useState(false);
 
   const [authenticated, setauthenticated] = useState(null);
+
+
+  const logout = () => {
+    localStorage.setItem("authenticated", false);
+    localStorage.setItem("token", "")
+    navigate("/");
+
+  }
+
   useEffect(() => {
     const loggedInUser = localStorage.getItem("authenticated");
     if (loggedInUser) {
@@ -46,7 +56,7 @@ function User() {
               <div>
                 <p > Reset Password</p>
                 <Link to='/login'>
-                  <p className='logout'> Logout </p>
+                  <p className='logout' onClick={logout}> Logout </p>
                 </Link>
               </div>
             </div>
